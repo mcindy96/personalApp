@@ -7,8 +7,8 @@
 
 <template name="addActivity">
   <input type="text" id="activityname" placeholder="activity name"><br>
-  <input type="text" id="description" placeholder="description"><br>
   <input type="text" id="location" placeholder="location"><br>
+  <input type="text" id="address" placeholder="address"><br>
   <input type="text" id="price" placeholder="price"><br>
   <button id="addActivity" class="btn btn-primary">
     Add to Collection
@@ -17,17 +17,20 @@
 
 <template name="showActivity">
   {{#if currentUser}}
-  <ul>
+  <ol>
   {{#each a in activityList}}
     <li>{{> activityrow activity=a}}</li>
   {{/each}}
-  </ul>
+  </ol>
   {{else}}
   <h1>You must log in to see the info!</h1>
 {{/if}}
 </template>
 
 <template name="activityrow">
-  {{activity.activityname}}--{{activity.description}}--{{activity.location}}--{{activity.price}}
-  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+  <strong>Activity: </strong>{{activity.activityname}}<br>
+  <strong>Location: </strong>{{activity.location}}<br>
+  <strong>Address: </strong>{{activity.address}}<br>
+  <strong>Price: </strong>{{activity.price}}<br>
+  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span><br><br>
 </template>

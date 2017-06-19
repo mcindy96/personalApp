@@ -8,59 +8,60 @@
     <div class="col-md-4 col-md-offset-2">
       <form>
         <h3>Choose a day:</h3>
-        <input id="thedate" type="date">
+        <input type="date" id="findDate">
       </form>
       <br>
 
       <form>
         <h3>Choose a time range:</h3>
-        From <input type="time" name="usr_time"> to <input type="time" name="usr_time">
+        From <input type="time" id="findTimeOne">
+        to <input type="time" id="findTimeTwo">
       </form>
       <br>
 
       <form>
         <h3>Method of transportaion:</h3>
-          <input type="radio" name="transportation" value="car">Car<br>
-          <input type="radio" name="transportation" value="public">Public Transportation<br>
-          <input type="radio" name="transportation" value="bike">Bike<br>
-          <input type="radio" name="transportation" value="walking">Walking
+          <input type="radio" id="car">Car<br>
+          <input type="radio" id="public">Public Transportation<br>
+          <input type="radio" id="bike">Bike<br>
+          <input type="radio" id="walking">Walking
         </form>
         <br>
 
       <form>
         <h3>Enter location (zip code):</h3>
-        <input type="text" name="people">
+        <input type="text" id="zipCode">
       </form>
       <br>
 
       <h3>Student discount:</h3>
       <select name="discount">
-        <option value="yes">Yes</option>
-        <option value="no">No</option>
+        <option value="yes" id="yesDiscount">Yes</option>
+        <option value="no" id="noDiscount">No</option>
       </select>
       </div>
 
       <div class="col-md-3 col-md-offset-1">
         <form>
           <h3>Price:</h3>
-          <input type="checkbox" name="price">Free!<br>
-          <input type="checkbox" name="price">$<br>
-          <input type="checkbox" name="price">$$<br>
-          <input type="checkbox" name="price">$$$<br>
-          <input type="checkbox" name="price">$$$$<br>
+          <input type="checkbox" name="price" id="free">Free!<br>
+          <input type="checkbox" name="price" id="oneMoney">$<br>
+          <input type="checkbox" name="price" id="twoMoney">$$<br>
+          <input type="checkbox" name="price" id="threeMoney">$$$<br>
+          <input type="checkbox" name="price" id="fourMoney">$$$$<br>
         </form>
         <br>
 
         <form>
           <h3>Number of people:</h3>
-          <input type="text" name="people">
+          <input type="text" name="people" id="numPeople">
         </form>
         <br>
 
         <form>
           <h3>Environment:</h3>
-          <input type="checkbox" name="location">Outdoors<br>
-          <input type="checkbox" name="location">Indoors<br>
+          <input type="checkbox" name="location" id="outdoors">Outdoors<br>
+          <input type="checkbox" name="location" id="indoors">Indoors<br>
         </form>
         <br>
 
@@ -75,5 +76,31 @@
     </div>
     <br>
   </div>
+  <br><br><br>
+  {{> mySearch}}
+</template>
 
+<template name="mySearch">
+  <div style="background-color: #FF8A80">
+    <br>
+    <h1 align="center"><strong>My Past Searches:</strong></h1>
+    <br>
+    {{#if currentUser}}
+    <ol>
+    {{#each s in searchList}}
+      <li>{{> searchrow s=s}}</li>
+    {{/each}}
+    </ol>
+    {{else}}
+    <h1>You must log in to see the info!</h1>
+  {{/if}}
+  </div>
+</template>
+
+<template name="searchrow">
+  <strong>Date: </strong>{{s.findDate}}<br>
+  <strong>Time: </strong>from{{s.findTimeOne}} to {{s.findTimeTwo}}<br>
+  <strong>Transportation: </strong>{{s.car}}<br>
+  <strong>Price: </strong>{{activity.price}}<br>
+  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span><br><br>
 </template>

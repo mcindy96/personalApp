@@ -4,15 +4,15 @@ Template.showActivity.helpers({
 Template.addActivity.events({
   'click button'(elt,instance){
     const activityname = instance.$('#activityname').val();//the $ restricts the name to just that template
-    const description = instance.$('#description').val();
     const location = instance.$('#location').val();
+    const address = instance.$('#address').val();
     const price = instance.$('#price').val();
     console.log('adding' +activityname);
     instance.$('#activityname').val(""); //erase textbox after reading
-    instance.$('#description').val(""); //erase after reading
-    instance.$('#location').val("");
+    instance.$('#location').val(""); //erase after reading
+    instance.$('#address').val("");
     instance.$('#price').val("");
-    Activity.insert({activityname:activityname,description:description,location:location,price:price,
+    Activity.insert({activityname:activityname,location:location,address:address,price:price,
                      owner:Meteor.userId(),
                      createAt:new Date()});
     //shorter version: People.insert({name,birthyear})
@@ -28,7 +28,6 @@ Template.activityrow.events({
     } else {
       alert("Why are you deleting someone else's entry?");
     }
-    Activity.remove(this.activity._id);
   }
 })
 
