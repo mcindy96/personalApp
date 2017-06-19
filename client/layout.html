@@ -1,0 +1,41 @@
+<head>
+  <title>Personal App</title>
+</head>
+
+
+<template name="layout">
+  <div class="container">
+		<header>
+			<h1 style="font-family: 'Shadows Into Light', cursive;" align="center">BeActive</h1>
+		</header>
+<!-- Here is the standard Bootstrap code for a Navigation bar taken directly from getbootstrap.com/components -->
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{{pathFor 'home'}}">Home</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="{{pathFor 'schedule'}}">Schedule It!</a></li>
+      <li><a href="{{pathFor 'addActivities'}}">Add Activities</a></li>
+      <li><a href="{{pathFor 'pastActivities'}}">Past Activities</a></li>
+      <li><a href="{{pathFor 'contact'}}">Contact Us</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      {{> loginButtons}}
+    </ul>
+  </div>
+</nav>
+{{> yield}}
+<footer>
+  <br><br>
+  <p>Made by: Cindy Ma</p>
+  <p>Contact Information: <a href="mailto:cindym@brandeis.edu">cindym@brandeis.edu</a></p>
+</footer>
+</div>
+
+<style>
+   body { background: #69F0AE !important; }
+
+</style>
+ 
+</template>

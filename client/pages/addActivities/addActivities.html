@@ -1,0 +1,33 @@
+<template name="addActivities">
+  <h1>Add Activities</h1>
+  {{> addActivity}}
+  <hr>
+  {{> showActivity}}
+</template>
+
+<template name="addActivity">
+  <input type="text" id="activityname" placeholder="activity name"><br>
+  <input type="text" id="description" placeholder="description"><br>
+  <input type="text" id="location" placeholder="location"><br>
+  <input type="text" id="price" placeholder="price"><br>
+  <button id="addActivity" class="btn btn-primary">
+    Add to Collection
+  </button>
+</template>
+
+<template name="showActivity">
+  {{#if currentUser}}
+  <ul>
+  {{#each a in activityList}}
+    <li>{{> activityrow activity=a}}</li>
+  {{/each}}
+  </ul>
+  {{else}}
+  <h1>You must log in to see the info!</h1>
+{{/if}}
+</template>
+
+<template name="activityrow">
+  {{activity.activityname}}--{{activity.description}}--{{activity.location}}--{{activity.price}}
+  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+</template>

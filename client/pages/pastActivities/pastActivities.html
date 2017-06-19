@@ -1,0 +1,81 @@
+<template name="pastActivities">
+{{#if currentUser}}
+  <div>
+    <h1>Happening Now</h1>
+  </div>
+
+    <div class="row">
+    <div class="col-sm-6 col-md-4">
+    <!-- thumbnail taken from Bootstrap website -->
+      <div class="thumbnail">
+        <img src="http://www.paddleboston.com/images/KendallFatherKids1-375h.jpg" alt="kayaking">
+        <div class="caption">
+          <h3>Kayaking on Charles River</h3>
+          <br>
+          <p><a href="http://paddleboston.com/rentals/our-locations/cambridge-at-kendall-square/" class="btn btn-primary" role="button">More Details</a> <a href="#" class="btn btn-default" role="button">Reviews</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <img src="http://www.thebostoncalendar.com/system/events/photos/000/078/708/original/Screen_Shot_2016-06-27_at_10.59.22_AM.png?1467025537" alt="salsa">
+        <div class="caption">
+          <h3>Salsa in the Park</h3>
+          <br>
+          <p><a href="http://mmsalsainthepark.weebly.com/" class="btn btn-primary" role="button">More Details</a> <a href="#" class="btn btn-default" role="button">Reviews</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <img src="http://az616578.vo.msecnd.net/files/2016/06/26/636025168488919340223999878_how-to-deal-with-a-busy-gym-graphics-3.jpg" alt="Gym">
+        <div class="caption">
+          <h3>Weight Lifting</h3>
+          <br>
+          <p><a href="http://www.brandeisjudges.com/facilities/schedule" class="btn btn-primary" role="button">More Details</a> <a href="#" class="btn btn-default" role="button">Reviews</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br><br><br>
+
+  <div>
+    <h1>What I have done</h1>
+  </div>
+  <br>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Activity</th>
+        <th>Description</th>
+        <th>Location</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tfoot>
+     <tr>
+       <td>Total Activities Done</td>
+       <td>8</td>
+     </tr>
+    </tfoot>
+    <tbody>
+      {{#each p in pastActivities}}
+      <tr>
+         <td>{{p.activity}}</td>
+         <td>{{p.description}}</td>
+         <td>{{p.location}}</td>
+         <td>{{p.price}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  {{else}}
+  <br>
+  <h3 align="center">Seems like you are not logged on :(  Log in or sign up to see past activities!</h3>
+  <br>
+  <img src="images/sadFace.jpg" width="100%">
+  {{/if}}
+
+</template>

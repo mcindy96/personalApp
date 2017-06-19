@@ -1,0 +1,79 @@
+<template name="schedule">
+
+<div style="background-color: #FF8A80">
+  <br>
+  <h1 align="center"><strong>Find an Activity...</strong></h1>
+  <br>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-2">
+      <form>
+        <h3>Choose a day:</h3>
+        <input id="thedate" type="date">
+      </form>
+      <br>
+
+      <form>
+        <h3>Choose a time range:</h3>
+        From <input type="time" name="usr_time"> to <input type="time" name="usr_time">
+      </form>
+      <br>
+
+      <form>
+        <h3>Method of transportaion:</h3>
+          <input type="radio" name="transportation" value="car">Car<br>
+          <input type="radio" name="transportation" value="public">Public Transportation<br>
+          <input type="radio" name="transportation" value="bike">Bike<br>
+          <input type="radio" name="transportation" value="walking">Walking
+        </form>
+        <br>
+
+      <form>
+        <h3>Enter location (zip code):</h3>
+        <input type="text" name="people">
+      </form>
+      <br>
+
+      <h3>Student discount:</h3>
+      <select name="discount">
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+      </div>
+
+      <div class="col-md-3 col-md-offset-1">
+        <form>
+          <h3>Price:</h3>
+          <input type="checkbox" name="price">Free!<br>
+          <input type="checkbox" name="price">$<br>
+          <input type="checkbox" name="price">$$<br>
+          <input type="checkbox" name="price">$$$<br>
+          <input type="checkbox" name="price">$$$$<br>
+        </form>
+        <br>
+
+        <form>
+          <h3>Number of people:</h3>
+          <input type="text" name="people">
+        </form>
+        <br>
+
+        <form>
+          <h3>Environment:</h3>
+          <input type="checkbox" name="location">Outdoors<br>
+          <input type="checkbox" name="location">Indoors<br>
+        </form>
+        <br>
+
+        <h3>Background color:</h3>
+        <input id="color" type="color">
+      </div>
+    </div>
+    <br><br><br>
+
+    <div align="center">
+      <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+    </div>
+    <br>
+  </div>
+
+</template>
