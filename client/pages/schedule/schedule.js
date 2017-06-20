@@ -8,7 +8,7 @@ Template.schedule.events({
     const findTimeOne = instance.$('#findTimeOne').val();
     const findTimeTwo = instance.$('#findTimeTwo').val();
     const transportation = instance.$('.transportation').val();
-    const zipcode = instance.$('#zipCode').val();
+    const zipCode = instance.$('#zipCode').val();
     const discount = instance.$('.discount').val();
     const price = instance.$('.price').val();
     const num = instance.$('#numPeople').val();
