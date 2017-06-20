@@ -13,9 +13,12 @@ Template.addActivity.events({
     instance.$('#location').val(""); //erase after reading
     instance.$('#address').val("");
     instance.$('#price').val("");
-    Activity.insert({activityname:activityname,location:location,address:address,price:price,
-                     owner:Meteor.userId(),
-                     createAt:new Date()});
+    var activity = {activityname:activityname,location:location,
+                    address:address,price:price,
+                    owner:Meteor.userId()}
+                    //createAt:new Date()}
+    Meteor.call('activity.insert',activity);
+    //Activity.insert(activity);
     //shorter version: People.insert({name,birthyear})
   }
 })
@@ -25,7 +28,8 @@ Template.activityrow.events({
     console.dir(this); //show you what the object is at the time this line is called. Can look inside object.
     console.log(this.activity._id); //Print the word, don't let you look inside
     if (this.activity.owner==Meteor.userId()){
-      Activity.remove(this.activity._id);
+      Meteor.call('activity.remove',this.activity._id);
+      //Activity.remove(this.activity._id);
     } else {
       alert("Why are you deleting someone else's entry?");
     }

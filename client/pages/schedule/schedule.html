@@ -42,14 +42,19 @@
       </div>
 
       <div class="col-md-3 col-md-offset-1">
-        <form>
+        <div id="priceList">
           <h3>Price:</h3>
+          {{#each price in priceList}}
+          <input type="checkbox" name="price" value="{{price}}">{{price}}<br>
+          {{/each}}
+          <!--
           <input type="checkbox" class="price" id="free">Free!<br>
           <input type="checkbox" class="price" id="oneMoney">$<br>
           <input type="checkbox" class="price" id="twoMoney">$$<br>
           <input type="checkbox" class="price" id="threeMoney">$$$<br>
           <input type="checkbox" class="price" id="fourMoney">$$$$<br>
-        </form>
+          -->
+        </div>
         <br>
 
         <form>
@@ -103,7 +108,10 @@
   <strong>Transportation: </strong>{{s.transportation}}<br>
   <strong>Location: </strong>{{s.zipCode}}<br>
   <strong>Student Discount: </strong>{{s.discount}}<br>
-  <strong>Price: </strong>{{s.price}}<br>
+  <strong>Price: </strong>
+  {{#each price in s.price}}
+    {{price}}
+  {{/each}}<br>
   <strong>Number of People: </strong>{{s.numPeople}}<br>
   <strong>Environment: </strong>{{s.environment}}<br>
   <span class="glyphicon glyphicon-remove" aria-hidden="true"></span><br><br>

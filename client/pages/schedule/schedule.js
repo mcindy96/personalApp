@@ -2,6 +2,12 @@ Template.mySearch.helpers({
   searchList() {return mySearch.find()},
 })
 
+Template.schedule.helpers({
+  priceList() {
+     console.log("in priceList");
+     return ['Free!','$','$$','$$$','$$$$']},
+})
+
 Template.schedule.events({
   'click button'(elt,instance){
     const findDate = instance.$('#findDate').val();
@@ -10,7 +16,12 @@ Template.schedule.events({
     const transportation = instance.$('.transportation').val();
     const zipCode = instance.$('#zipCode').val();
     const discount = instance.$('.discount').val();
-    const price = instance.$('.price').val();
+    priceinputs = instance.$("#priceList input");
+    price = [];
+    priceinputs.each(function(a,b){
+      if (b.checked) {price.push(b.value);}
+    });
+    //const price = instance.$('.price').val();
     const num = instance.$('#numPeople').val();
     const numPeople = parseInt(num);
     const environment = instance.$('.environment').val();
@@ -24,10 +35,11 @@ Template.schedule.events({
     instance.$('.price').val("");
     instance.$('#numPeople').val("");
     instance.$('.environment').val("");
-    mySearch.insert({findDate,findTimeOne,findTimeTwo,transportation,zipCode,
+    var searches = {findDate,findTimeOne,findTimeTwo,transportation,zipCode,
       discount,price,numPeople,environment,
-      owner:Meteor.userId(),
-      createAt:new Date()});
+      owner:Meteor.userId()}
+    Meteor.call('searches.insert', searches);
+    //mySearch.insert(searches);
 
   }
 })

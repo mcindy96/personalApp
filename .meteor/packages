@@ -21,6 +21,5 @@ blaze-html-templates
 accounts-password
 accounts-google
 autopublish
-insecure
 ian:accounts-ui-bootstrap-3
 service-configuration
