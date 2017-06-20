@@ -1,6 +1,7 @@
 Template.showActivity.helpers({
   activityList() {return Activity.find()},
 })
+
 Template.addActivity.events({
   'click button'(elt,instance){
     const activityname = instance.$('#activityname').val();//the $ restricts the name to just that template
