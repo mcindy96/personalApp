@@ -38,7 +38,7 @@ Template.schedule.events({
     var searches = {findDate,findTimeOne,findTimeTwo,transportation,zipCode,
       discount,price,numPeople,environment,
       owner:Meteor.userId()}
-    Meteor.call('searches.insert', searches);
+    Meteor.call('s.insert', searches);
     //mySearch.insert(searches);
 
   }
@@ -50,7 +50,7 @@ Template.searchrow.events({
     console.log(this.s._id); //Print the word, don't let you look inside
     //if (this.s.owner==Meteor.userId()){
       //mySearch.remove(this.s._id);
-      Meteor.call('mySearch.remove',this.s);
+      Meteor.call('s.remove',this.s);
     //} else {
   //    alert("Why are you deleting someone else's entry?");
     //}

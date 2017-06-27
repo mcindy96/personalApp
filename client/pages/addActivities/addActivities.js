@@ -28,7 +28,7 @@ Template.activityrow.events({
     console.dir(this); //show you what the object is at the time this line is called. Can look inside object.
     console.log(this.activity._id); //Print the word, don't let you look inside
     if (this.activity.owner==Meteor.userId()){
-      Meteor.call('activity.remove',this.activity._id);
+      Meteor.call('activity.remove',this.activity);
       //Activity.remove(this.activity._id);
     } else {
       alert("Why are you deleting someone else's entry?");

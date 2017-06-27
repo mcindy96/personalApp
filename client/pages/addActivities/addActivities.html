@@ -1,4 +1,7 @@
 <template name="addActivities">
+  <head>
+    <link rel="stylesheet" type="text/css" href="addActivities.css">
+  </head>
   <h1>Add Activities</h1>
   {{> addActivity}}
   <hr>
@@ -6,13 +9,17 @@
 </template>
 
 <template name="addActivity">
-  <input type="text" id="activityname" placeholder="activity name"><br>
-  <input type="text" id="location" placeholder="location"><br>
-  <input type="text" id="address" placeholder="address"><br>
-  <input type="text" id="price" placeholder="price"><br>
-  <button id="addActivity" class="btn btn-primary">
-    Add to Collection
-  </button>
+  <div class="container">
+    <input type="text" class="box1" id="activityname" placeholder="activity name"><br>
+    <input type="text" class="box2" id="location" placeholder="location"><br>
+    <input type="text" class="box3" id="address" placeholder="address"><br>
+    <input type="text" class="box4" id="price" placeholder="price"><br>
+  </div>
+  <div class="buttonWrap">
+    <button class="button" id="addActivity">
+      Add to Collection
+    </button>
+  </div>
 </template>
 
 <template name="showActivity">
