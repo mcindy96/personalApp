@@ -2,8 +2,8 @@
 Used Metor methods in addActivities and schedule page.
 
 2) run a user test on your app with two people in class and get their feedback on your app
-Jarret: Need more functionality. Website looks nice.
-Steve:
+Jarrett: Need more functionality. Website looks nice.
+Steven: The nav bar was confusing. "Schedule it" should be changed to "Search". Add more in the home page.
 
 3) create a branch using pure CSS in addition to  bootstrap  and use flexboxes and media queries
 to get responsive design.
