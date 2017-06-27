@@ -48,11 +48,12 @@ Template.searchrow.events({
   'click span'(elt,instance) {
     console.dir(this); //show you what the object is at the time this line is called. Can look inside object.
     console.log(this.s._id); //Print the word, don't let you look inside
-    if (this.s.owner==Meteor.userId()){
-      mySearch.remove(this.s._id);
-    } else {
-      alert("Why are you deleting someone else's entry?");
-    }
+    //if (this.s.owner==Meteor.userId()){
+      //mySearch.remove(this.s._id);
+      Meteor.call('mySearch.remove',this.s);
+    //} else {
+  //    alert("Why are you deleting someone else's entry?");
+    //}
   }
 })
 

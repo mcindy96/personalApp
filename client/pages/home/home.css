@@ -1,0 +1,20 @@
+.container{
+  display:flex;
+  align-items: center;
+  flex-direction: row;
+  width: 75%;
+}
+
+.container div{
+  padding: 10px;
+
+}
+
+.about {
+  flex:3;
+
+}
+
+.aside {
+  flex:1;
+}

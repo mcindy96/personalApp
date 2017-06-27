@@ -1,30 +1,25 @@
 <head>
   <title>Personal App</title>
+  <link rel="stylesheet" type="text/css" href="layout.css">
 </head>
 
 
 <template name="layout">
-  <div class="container">
+  <div>
 		<header>
 			<h1 style="font-family: 'Shadows Into Light', cursive;" align="center">BeActive</h1>
 		</header>
 <!-- Here is the standard Bootstrap code for a Navigation bar taken directly from getbootstrap.com/components -->
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="{{pathFor 'home'}}">Home</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li><a href="{{pathFor 'schedule'}}">Schedule It!</a></li>
-      <li><a href="{{pathFor 'addActivities'}}">Add Activities</a></li>
-      <li><a href="{{pathFor 'pastActivities'}}">Past Activities</a></li>
-      <li><a href="{{pathFor 'contact'}}">Contact Us</a></li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
+
+    <div class="topnav" id="myTopNav">
+      <a class="navLink" href="{{pathFor 'home'}}">Home</a>
+      <a class="navLink" href="{{pathFor 'schedule'}}">Schedule It!</a>
+      <a class="navLink" href="{{pathFor 'addActivities'}}">Add Activities</a>
+      <a class="navLink" href="{{pathFor 'pastActivities'}}">Past Activities</a>
+      <a class="navLink" href="{{pathFor 'contact'}}">Contact Us</a>
       {{> loginButtons}}
-    </ul>
+      <a href="javascript:void(0);" class="icon" onclick="topNav()">&#9776;</a>
   </div>
-</nav>
 {{> yield}}
 <footer>
   <br><br>
@@ -33,9 +28,16 @@
 </footer>
 </div>
 
-<style>
-   body { background: #69F0AE !important; }
 
-</style>
- 
+<script>
+/* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+function topNav() {
+    var x = document.getElementById("myTopNav");
+    if (x.className === "topnav") {
+        x.className += "responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
+</script>
 </template>

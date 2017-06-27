@@ -1,0 +1,56 @@
+body{
+  background: #69F0AE;
+}
+/* Add a black background color to the top navigation */
+#myTopNav {
+    background-color: #333;
+    padding-top: 0;
+    padding-bottom: 33px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+/* Nav bar design obtained from www.w3schools.com */
+
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .icon {
+    display: none;
+}
+
+@media screen and (max-width: 650px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: inline-block;
+    text-align: left;
+  }
+}
