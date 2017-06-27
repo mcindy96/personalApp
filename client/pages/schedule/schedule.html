@@ -19,14 +19,20 @@
         to <input type="time" class="time" id="findTimeTwo">
       </form>
       <br>
-
-      <form>
+      <div id="transportList">
         <h3>Method of transportaion:</h3>
+        {{#each transport in transportList}}
+        <input type="radio" id="transport" value="{{transport}}">{{transport}}<br>
+        {{/each}}
+      <!--
+      <form>
           <input type="radio" name = "transportation" class="transportation" id="car">Car<br>
           <input type="radio" name = "transportation" class="transportation" id="public">Public Transportation<br>
           <input type="radio" name = "transportation" class="transportation" id="bike">Bike<br>
           <input type="radio" name = "transportation" class="transportation" id="walking">Walking
         </form>
+      -->
+      </div>
         <br>
 
       <form>
@@ -36,7 +42,7 @@
       <br>
 
       <h3>Student discount:</h3>
-      <select name="discount">
+      <select id="discount">
         <option value="yes" class="discount" id="yesDiscount">Yes</option>
         <option value="no" class="discount" id="noDiscount">No</option>
       </select>
@@ -46,7 +52,7 @@
         <div id="priceList">
           <h3>Price:</h3>
           {{#each price in priceList}}
-          <input type="checkbox" name="price" value="{{price}}">{{price}}<br>
+          <input type="checkbox" id="price" value="{{price}}">{{price}}<br>
           {{/each}}
           <!--
           <input type="checkbox" class="price" id="free">Free!<br>
@@ -63,12 +69,18 @@
           <input type="text" name="people" id="numPeople">
         </form>
         <br>
-
-        <form>
+        <div id="environmentList">
           <h3>Environment:</h3>
+          {{#each environment in environmentList}}
+          <input type="checkbox" id="environment" value="{{environment}}">{{environment}}<br>
+          {{/each}}
+        <!--
+        <form>
           <input type="checkbox" class="environment" id="outdoors">Outdoors<br>
           <input type="checkbox" class="environment" id="indoors">Indoors<br>
         </form>
+        -->
+      </div>
         <br>
 
         <h3>Background color:</h3>
@@ -106,7 +118,7 @@
 <template name="searchrow">
   <strong>Date: </strong>{{s.findDate}}<br>
   <strong>Time: </strong>from {{s.findTimeOne}} to {{s.findTimeTwo}}<br>
-  <strong>Transportation: </strong>{{s.transportation}}<br>
+  <strong>Transportation: </strong>{{s.transport}}<br>
   <strong>Location: </strong>{{s.zipCode}}<br>
   <strong>Student Discount: </strong>{{s.discount}}<br>
   <strong>Price: </strong>

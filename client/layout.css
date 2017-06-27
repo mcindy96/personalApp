@@ -1,5 +1,18 @@
 body{
-  background: #69F0AE;
+  /*background: #69F0AE;*/
+  position: relative;
+}
+
+body::after{
+  content: "";
+  background: url(https://images.designtrends.com/wp-content/uploads/2015/11/30142928/Green-Shaded-Plain-Background1.jpg);
+  opacity: 0.7;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
 }
 /* Add a black background color to the top navigation */
 #myTopNav {
@@ -24,7 +37,7 @@ body{
 
 /* Change the color of links on hover */
 .topnav a:hover {
-    background-color: #ddd;
+    background-color:#AED581;
     color: black;
 }
 

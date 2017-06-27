@@ -5,7 +5,18 @@ Template.mySearch.helpers({
 Template.schedule.helpers({
   priceList() {
      console.log("in priceList");
-     return ['Free!','$','$$','$$$','$$$$']},
+     return [' Free! ', ' $ ', ' $$ ', ' $$$ ', ' $$$$ ']
+   },
+
+  environmentList() {
+    console.log("in environmentList");
+    return [' Outdoors ', ' Indoors ']
+  },
+
+  transportList() {
+    console.log("in transportList");
+    return [' Car ', ' Public Transportation ', ' Bike ', ' Walking ']
+  },
 })
 
 Template.schedule.events({
@@ -13,9 +24,14 @@ Template.schedule.events({
     const findDate = instance.$('#findDate').val();
     const findTimeOne = instance.$('#findTimeOne').val();
     const findTimeTwo = instance.$('#findTimeTwo').val();
-    const transportation = instance.$('.transportation').val();
+    transportinputs = instance.$("#transportList input");
+    transport = [];
+    transportinputs.each(function(a,b){
+      if (b.checked) {transport.push(b.value);}
+    });
+    //const transportation = instance.$('.transportation').val();
     const zipCode = instance.$('#zipCode').val();
-    const discount = instance.$('.discount').val();
+    const discount = instance.$('#discount').val();
     priceinputs = instance.$("#priceList input");
     price = [];
     priceinputs.each(function(a,b){
@@ -24,18 +40,23 @@ Template.schedule.events({
     //const price = instance.$('.price').val();
     const num = instance.$('#numPeople').val();
     const numPeople = parseInt(num);
-    const environment = instance.$('.environment').val();
+    environmentinputs = instance.$("#environmentList input");
+    environment = [];
+    environmentinputs.each(function(a,b){
+      if (b.checked) {environment.push(b.value);}
+    });
+    //const environment = instance.$('.environment').val();
     console.log('adding search');
     instance.$('#findDate').val("");
     instance.$('#findTimeOne').val("");
     instance.$('#findTimeTwo').val("");
-    instance.$('.transportation').val("");
+    instance.$('#transport').val("");
     instance.$('#zipCode').val("");
-    instance.$('.discount').val("");
-    instance.$('.price').val("");
+    instance.$('#discount').val("");
+    instance.$('#price').val("");
     instance.$('#numPeople').val("");
-    instance.$('.environment').val("");
-    var searches = {findDate,findTimeOne,findTimeTwo,transportation,zipCode,
+    instance.$('#environment').val("");
+    var searches = {findDate,findTimeOne,findTimeTwo,transport,zipCode,
       discount,price,numPeople,environment,
       owner:Meteor.userId()}
     Meteor.call('s.insert', searches);
