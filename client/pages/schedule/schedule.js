@@ -65,6 +65,10 @@ Template.schedule.events({
   }
 })
 
+Template.mySearch.onCreated(function() {
+  Meteor.subscribe('mySearch');
+});
+
 Template.searchrow.events({
   'click span'(elt,instance) {
     console.dir(this); //show you what the object is at the time this line is called. Can look inside object.

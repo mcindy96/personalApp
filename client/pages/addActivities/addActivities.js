@@ -23,6 +23,10 @@ Template.addActivity.events({
   }
 })
 
+Template.showActivity.onCreated(function() {
+  Meteor.subscribe('activity');
+});
+
 Template.activityrow.events({
   'click span'(elt,instance) {
     console.dir(this); //show you what the object is at the time this line is called. Can look inside object.

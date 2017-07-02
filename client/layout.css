@@ -14,30 +14,30 @@ body::after{
   position: absolute;
   z-index: -1;
 }
-/* Add a black background color to the top navigation */
-#myTopNav {
-    background-color: #333;
-    padding-top: 0;
-    padding-bottom: 33px;
-    margin-top: 20px;
-    margin-bottom: 10px;
+/* Nav bar css from w3schools.com*/
+.topnav{
+  background-color: #333;
+  overflow: hidden;
 }
-/* Nav bar design obtained from www.w3schools.com */
 
 /* Style the links inside the navigation bar */
 .topnav a {
     float: left;
     display: block;
-    color: white;
+    color: #f2f2f2;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
 }
 
+#login{
+  float: right;
+}
+
 /* Change the color of links on hover */
 .topnav a:hover {
-    background-color:#AED581;
+    background-color: #AED581;
     color: black;
 }
 
@@ -46,6 +46,7 @@ body::after{
     display: none;
 }
 
+/*
 @media screen and (max-width: 650px) {
   .topnav a:not(:first-child) {display: none;}
   .topnav a.icon {
@@ -66,4 +67,4 @@ body::after{
     display: inline-block;
     text-align: left;
   }
-}
+}*/
