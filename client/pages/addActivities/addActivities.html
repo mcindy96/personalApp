@@ -21,15 +21,15 @@
 </template>
 
 <template name="showActivity">
-  {{#if currentUser}}
+  <!-- {{#if currentUser}} -->
   <ol>
   {{#each a in activityList}}
     <li>{{> activityrow activity=a}}</li>
   {{/each}}
   </ol>
-  {{else}}
+  <!-- {{else}}
   <h1>You must log in to see the info!</h1>
-{{/if}}
+{{/if}} -->
 </template>
 
 <template name="activityrow">
@@ -38,4 +38,13 @@
   <strong>Address: </strong>{{activity.address}}<br>
   <strong>Price: </strong>{{activity.price}}<br>
   <span class="glyphicon glyphicon-remove" aria-hidden="true"></span><br><br>
+  <button type="button" id="enableUpdate" class="btn btn-info btn-xs">Update/Edit</button>
+  {{#if isUpdating}}
+    <input type="text" class="box2" id="newlocation" placeholder="location"><br>
+    <input type="text" class="box3" id="newaddress" placeholder="address"><br>
+    <input type="text" class="box4" id="newprice" placeholder="price"><br>
+    <button id="updateActivity" class="btn btn-primary">
+      Update Activity
+    </button>
+  {{/if}}
 </template>

@@ -23,8 +23,9 @@ Template.addActivity.events({
   }
 })
 
-Template.showActivity.onCreated(function() {
+Template.showActivity.onCreated(function activityrow_OnCreated() {
   Meteor.subscribe('activity');
+  this.Updating = new ReactiveVar(false);
 });
 
 Template.activityrow.events({
@@ -37,9 +38,30 @@ Template.activityrow.events({
     } else {
       alert("Why are you deleting someone else's entry?");
     }
+  },
+
+  'click button[id=enableUpdate]'(event,instance){
+    instance.Updating.set(true);
+    console.log(instance.Updating.get());
+  },
+  'click button[id=updateActivity]'(elt,instance){
+    const oldlocation = this.activity.location;
+    const oldaddress = this.activity.address;
+    const oldprice = this.activity.price;
+    const newlocation = instance.$('#newlocation').val();
+    const newaddress = instance.$('#newaddress').val();
+    const newprice = instance.$('#newprice').val();
+     var id = this.activity._id;
+     Meteor.call('activity.update',id,newlocation,newprice,newaddress);
+     instance.Updating.set(false);
   }
 })
 
 Template.activityrow.helpers({
-  isOwner() {return this.activity.owner == Meteor.userId()}
+  isOwner() {
+    return this.activity.owner == Meteor.userId()
+  },
+  isUpdating() {
+    return Template.instance().Updating.get();
+  }
 })
