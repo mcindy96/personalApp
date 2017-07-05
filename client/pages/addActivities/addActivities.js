@@ -3,7 +3,7 @@ Template.showActivity.helpers({
 })
 
 Template.addActivity.events({
-  'click button'(elt,instance){
+  'click button[id=addActivity]'(elt,instance){
     const activityname = instance.$('#activityname').val();//the $ restricts the name to just that template
     const location = instance.$('#location').val();
     const address = instance.$('#address').val();
@@ -23,9 +23,12 @@ Template.addActivity.events({
   }
 })
 
-Template.showActivity.onCreated(function activityrow_OnCreated() {
+Template.showActivity.onCreated( function(){
   Meteor.subscribe('activity');
-  this.Updating = new ReactiveVar(false);
+})
+
+Template.activityrow.onCreated(function activityrow_OnCreated() {
+    this.Updating = new ReactiveVar(false);
 });
 
 Template.activityrow.events({
@@ -40,9 +43,9 @@ Template.activityrow.events({
     }
   },
 
-  'click button[id=enableUpdate]'(event,instance){
+  'click button[id=enableUpdate]'(elt,instance){
     instance.Updating.set(true);
-    console.log(instance.Updating.get());
+    //console.log(instance.Updating.get());
   },
   'click button[id=updateActivity]'(elt,instance){
     const oldlocation = this.activity.location;
@@ -52,7 +55,7 @@ Template.activityrow.events({
     const newaddress = instance.$('#newaddress').val();
     const newprice = instance.$('#newprice').val();
      var id = this.activity._id;
-     Meteor.call('activity.update',id,newlocation,newprice,newaddress);
+     Meteor.call('activity.update2',this.activity,newlocation,newprice,newaddress);
      instance.Updating.set(false);
   }
 })
